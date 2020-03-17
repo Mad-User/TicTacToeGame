@@ -1,7 +1,5 @@
 package icc.stud.kotov_av.tictac;
 
-import java.util.Arrays;
-
 public class TicTacToe {
     
     private Cell[][] field;
@@ -13,7 +11,10 @@ public class TicTacToe {
     public TicTacToe(int size) {
         this.size = size;
         field = new Cell[size][size];
-        Arrays.fill(field, Cell.EMPTY);
+        
+        for (int i = 0; i < size; ++i)
+            for (int j = 0; j < size; ++j)
+                field[i][j] = Cell.EMPTY;
     }
 
     /**
@@ -47,8 +48,9 @@ public class TicTacToe {
      * Clearing all cells
      */
     public void clearAll() {
-        field = new Cell[size][size];
-        Arrays.fill(field, Cell.EMPTY);
+        for (int i = 0; i < size; ++i)
+            for (int j = 0; j < size; ++j)
+                field[i][j] = Cell.EMPTY;
     }
 
     /**
