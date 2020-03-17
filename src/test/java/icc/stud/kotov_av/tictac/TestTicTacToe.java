@@ -21,12 +21,11 @@ public class TestTicTacToe {
 
     @Test
     public void findMaxLength() {
-        TicTacToe ttt = new TicTacToe(3);
+        TicTacToe ttt = new TicTacToe(5);
         int[] expected = new int[5];
         
         expected = new int[] {0, 1, 1, 1, 1};
-        assertArrayEquals(expected, ttt.findMaxLength(Cell.O));
-    
+        assertArrayEquals(expected, ttt.findMaxLength(Cell.EMPTY));
 
     }
 }
