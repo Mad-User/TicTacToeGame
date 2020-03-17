@@ -2,15 +2,15 @@ package icc.stud.kotov_av.tictac;
 
 public enum Cell {
     /**
-     * Поле 'Нолик' 
+     * "zero"
      */
     O,
     /**
-     * Поле 'Крестик' 
+     * "cross"
      */
     X,
     /**
-     * Поле 'Пусто' 
+     * "empty"
      */
     EMPTY;
 }
