@@ -20,17 +20,6 @@ public class TicTacToe {
     }
 
     /**
-     * Getting the contents of a field the coordinates
-     * 
-     * @param x X coordinate
-     * @param y Y coordinate
-     * @return Returns the contents of the cell (x, y)
-     */
-    public Cell get(int x, int y) {
-        return field[x][y];
-    }
-    
-    /**
      * Writes X or Y to the specified cell
      * 
      * @param x X coordinate
