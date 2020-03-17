@@ -1,3 +1,6 @@
 # Default ignored files
 /workspace.xml
 /target/
+/.classpath
+/.project
+/.settings
