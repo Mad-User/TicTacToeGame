@@ -103,6 +103,40 @@ public class TicTacToe {
                 result[4] = buffer[4];
             }
         }
+
+        for (int x = 0; x < size; x++) {
+            buffer = lineCheck(type, x, 0, 1, 1);
+            if (buffer[0] > result[0]) {
+                result[0] = buffer[0];
+                result[1] = buffer[1];
+                result[2] = buffer[2];
+                result[3] = buffer[3];
+                result[4] = buffer[4];
+            }
+        }
+
+        // побочная диагональ
+        for (int y = 0; y < size; y++) {
+            buffer = lineCheck(type, (size - 1), y, -1, 1);
+            if (buffer[0] > result[0]) {
+                result[0] = buffer[0];
+                result[1] = buffer[1];
+                result[2] = buffer[2];
+                result[3] = buffer[3];
+                result[4] = buffer[4];
+            }
+        }
+
+        for (int x = 0; x < size; x++) {
+            buffer = lineCheck(type, x, 0, -1, 1);
+            if (buffer[0] > result[0]) {
+                result[0] = buffer[0];
+                result[1] = buffer[1];
+                result[2] = buffer[2];
+                result[3] = buffer[3];
+                result[4] = buffer[4];
+            }
+        }
         
         return result;
     }
