@@ -141,6 +141,16 @@ public class TicTacToe {
         return result;
     }
 
+    /**
+     * finds the length of a sequence of cells containing the expected type located on a certain straight line
+     * 
+     * @param type Type of cells to search for
+     * @param x0 Start position on X
+     * @param y0 Start position on Y
+     * @param dx Increment on X
+     * @param dy Increment on Y
+     * @return Array: maximum length of the sequence, coordinates of the beginning and end of the sequence
+     */
     private int[] lineCheck(Cell type, int x0, int y0, int dx, int dy) {
         int[] result = new int[5];
 
@@ -197,6 +207,9 @@ public class TicTacToe {
         return result;
     }
 
+    /**
+     * Data class to simplify the operation of the sequence length search algorithm
+     */
     private class Sequence {
         private int maxLength;
         
@@ -206,6 +219,13 @@ public class TicTacToe {
         private int xEnd;
         private int yEnd;
 
+        /**
+         * @param maxLength The maximum length of the sequence
+         * @param xStart X coordinate of the beginning of the sequence
+         * @param yStart Y coordinate of the beginning of the sequence
+         * @param xEnd X coordinate of the end of the sequence
+         * @param yEnd Y coordinate of the end of the sequence
+         */
         public Sequence( int maxLength, int xStart, int yStart, int xEnd, int yEnd) {
             this.maxLength = maxLength;
         
