@@ -68,7 +68,7 @@ public class TicTacToe {
         result[3] = 0; // X coordinate of the end of the sequence
         result[4] = 0; // Y coordinate of the end of the sequence
 
-        // строки
+        // lines
         for (int y = 0; y < size; y++) {
             buffer = lineCheck(type, 0, y, 1, 0);
             if (buffer[0] > result[0]) {
@@ -80,7 +80,7 @@ public class TicTacToe {
             }
         }
 
-        // столбцы
+        // columns
         for (int x = 0; x < size; x++) {
             buffer = lineCheck(type, x, 0, 0, 1);
             if (buffer[0] > result[0]) {
@@ -92,7 +92,7 @@ public class TicTacToe {
             }
         }
 
-        // основная диагональ
+        // the main diagonal
         for (int y = 0; y < size; y++) {
             buffer = lineCheck(type, 0, y, 1, 1);
             if (buffer[0] > result[0]) {
@@ -115,7 +115,7 @@ public class TicTacToe {
             }
         }
 
-        // побочная диагональ
+        // side diagonal
         for (int y = 0; y < size; y++) {
             buffer = lineCheck(type, (size - 1), y, -1, 1);
             if (buffer[0] > result[0]) {
