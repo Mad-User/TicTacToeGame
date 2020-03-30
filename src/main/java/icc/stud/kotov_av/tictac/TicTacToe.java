@@ -28,7 +28,7 @@ public class TicTacToe {
     public int write(int x, int y, Cell type) {
         if ((x < 0 || x >= size) || (y < 0 || y >= size)) return -1;
 
-        if (field[x][y] == Cell.EMPTY && (type != Cell.O || type != Cell.X)) {
+        if (field[x][y] == Cell.EMPTY) {
             field[x][y] = type;
             return 0;
         } else return -1;
@@ -60,85 +60,56 @@ public class TicTacToe {
      * @return Array: maximum length of the sequence, coordinates of the beginning and end of the sequence
      */
     public int[] findMaxLength(Cell type) {
-        int[] result = new int[5];
+        Sequence result = new Sequence();
         int[] buffer = new int[5];
-        result[0] = 0; // the maximum length of the sequence
-        result[1] = 0; // X coordinate of the beginning of the sequence
-        result[2] = 0; // Y coordinate of the beginning of the sequence
-        result[3] = 0; // X coordinate of the end of the sequence
-        result[4] = 0; // Y coordinate of the end of the sequence
 
         // lines
         for (int y = 0; y < size; y++) {
             buffer = lineCheck(type, 0, y, 1, 0);
-            if (buffer[0] > result[0]) {
-                result[0] = buffer[0];
-                result[1] = buffer[1];
-                result[2] = buffer[2];
-                result[3] = buffer[3];
-                result[4] = buffer[4];
+            if (buffer[0] > result.getMaxLength()) {
+                result.setData(buffer);
             }
         }
 
         // columns
         for (int x = 0; x < size; x++) {
             buffer = lineCheck(type, x, 0, 0, 1);
-            if (buffer[0] > result[0]) {
-                result[0] = buffer[0];
-                result[1] = buffer[1];
-                result[2] = buffer[2];
-                result[3] = buffer[3];
-                result[4] = buffer[4];
+            if (buffer[0] > result.getMaxLength()) {
+                result.setData(buffer);
             }
         }
 
         // the main diagonal
         for (int y = 0; y < size; y++) {
             buffer = lineCheck(type, 0, y, 1, 1);
-            if (buffer[0] > result[0]) {
-                result[0] = buffer[0];
-                result[1] = buffer[1];
-                result[2] = buffer[2];
-                result[3] = buffer[3];
-                result[4] = buffer[4];
+            if (buffer[0] > result.getMaxLength()) {
+                result.setData(buffer);
             }
         }
 
         for (int x = 0; x < size; x++) {
             buffer = lineCheck(type, x, 0, 1, 1);
-            if (buffer[0] > result[0]) {
-                result[0] = buffer[0];
-                result[1] = buffer[1];
-                result[2] = buffer[2];
-                result[3] = buffer[3];
-                result[4] = buffer[4];
+            if (buffer[0] > result.getMaxLength()) {
+                result.setData(buffer);
             }
         }
 
         // side diagonal
         for (int y = 0; y < size; y++) {
             buffer = lineCheck(type, (size - 1), y, -1, 1);
-            if (buffer[0] > result[0]) {
-                result[0] = buffer[0];
-                result[1] = buffer[1];
-                result[2] = buffer[2];
-                result[3] = buffer[3];
-                result[4] = buffer[4];
+            if (buffer[0] > result.getMaxLength()) {
+                result.setData(buffer);
             }
         }
 
         for (int x = 0; x < size; x++) {
             buffer = lineCheck(type, x, 0, -1, 1);
-            if (buffer[0] > result[0]) {
-                result[0] = buffer[0];
-                result[1] = buffer[1];
-                result[2] = buffer[2];
-                result[3] = buffer[3];
-                result[4] = buffer[4];
+            if (buffer[0] > result.getMaxLength()) {
+                result.setData(buffer);
             }
         }
         
-        return result;
+        return result.getData();
     }
 
     /**
@@ -236,6 +207,16 @@ public class TicTacToe {
             this.yEnd = yEnd;
         }
 
+        public Sequence() {
+            this.maxLength = 0;
+        
+            this.xStart = 0;
+            this.yStart = 0;
+    
+            this.xEnd = 0;
+            this.yEnd = 0;
+        }
+
         public int[] getData() {
             int[] data = new int[5];
 
@@ -246,6 +227,14 @@ public class TicTacToe {
             data[4] = this.yEnd;
 
             return data;
+        }
+
+        public void setData(int[] data) {
+            this.maxLength = data[0];
+            this.xStart = data[1];
+            this.yStart = data[2];
+            this.xEnd = data[3];
+            this.yEnd = data[4];
         }
 
         public int getMaxLength() {
