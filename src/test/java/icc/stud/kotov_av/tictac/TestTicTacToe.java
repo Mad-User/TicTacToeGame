@@ -9,7 +9,7 @@ public class TestTicTacToe {
     
     @Test
     public void write() {
-        final TicTacToe ttt = new TicTacToe(3);
+        final TicTacToeField ttt = new TicTacToeField(3);
 
         assertEquals(0, ttt.write(0, 0, Cell.O));
         assertEquals(-1, ttt.write(0, 0, Cell.X));
@@ -21,7 +21,7 @@ public class TestTicTacToe {
 
     @Test 
     public void findMaxLength() {
-        TicTacToe tObj = new TicTacToe(5);
+        TicTacToeField tObj = new TicTacToeField(5);
         int[] expected = new int[5];
         
         expected = new int[] {0, 0, 0, 0, 0};
@@ -70,6 +70,10 @@ public class TestTicTacToe {
         expected = new int[] {5, 4, 0, 0, 4};
         assertArrayEquals(expected, tObj.findMaxLength(Cell.X));
         tObj.clearAll();
+    }
 
+    @Test 
+    public void randomFindWinner() {
+        
     }
 }
