@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.*;
 
-public class TestTicTacToe {
+public class TestTicTacToeField {
     
     @Test
     public void write() {
