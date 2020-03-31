@@ -9,6 +9,9 @@ public class TicTacToeField {
     private Cell[][] field;
     private final int size;
 
+    /**
+     * Default constructor
+     */
     public TicTacToeField() {
         this( DEFAULT_SIZE );
     }
