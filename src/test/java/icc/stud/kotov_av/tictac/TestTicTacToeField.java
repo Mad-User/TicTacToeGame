@@ -96,5 +96,11 @@ public class TestTicTacToeField {
         assertArrayEquals(tObj.findMaxLength(Cell.X), tObj.findMaxLength(Cell.X));
         assertArrayEquals(tObj.findMaxLength(Cell.O), tObj.findMaxLength(Cell.O));
         assertArrayEquals(tObj.findMaxLength(Cell.X), tObj.findMaxLength(Cell.X));
+
+        int[] i = tObj.findMaxLength(Cell.O);
+        int[] i2 = tObj.findMaxLength(Cell.X);
+
+        System.out.println(i[0]);
+        System.out.println(i2[0]);
     }
 }
